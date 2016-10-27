@@ -1,0 +1,292 @@
+*{margin: 0; padding: 0;}
+ body{
+ 	font-family:'Open Sans';
+ 	font-size: 20px;
+ 	width: 100%;
+ 	height: 600px;
+
+ }
+ #gamb{
+ 	padding-left: 26%;
+ }
+ .item {
+ 	text-decoration: none;
+ 	color: white;
+ }
+
+ .puxado .item{
+	padding-left: 24%;
+	
+}
+ a {
+ 	text-decoration: none;
+ 
+ }
+ nav{
+ 	font-family:'Open Sans';
+ 	font-size: 25px;
+ 	height: 100%;
+ 	width: 20%;
+ 	background:#A7E18B; 
+ 	position: fixed;
+ 	width: 273;
+ }
+ a{
+ 	color: FFF;
+ 	text-decoration: none;
+
+ }
+ a:visited{
+ 	color:FFF;
+ 	text-decoration: none;
+ }
+li.item:hover{
+ 	background-color:#002f67;
+ 	text-decoration: none;
+ }
+ul.puxado li:hover{
+ 	background-color:#002f67;
+ 	text-decoration: none;
+ }
+div#liv a:hover {
+	background-color:#002f67;
+ 	text-decoration: none;
+ }
+ li{
+ 	padding: 12px;
+ 	position: relative;
+ }
+a
+ ul.puxado{
+ 	display: none;
+ }
+
+ ul.puxado li{
+ 	list-style: none;
+ }
+
+
+
+ div#liv:hover .puxado {
+ 	display: block;
+
+ }
+ .imgm{
+	width: 65px;
+}
+.puxado{
+	border-top: white;
+	font-size: 70%;
+	background-color: #A7E18B;
+}
+div#listar{
+
+}
+div#listar div{
+	top: 10%;
+	width: 80%;
+	height: 80%;
+	right: -10%;
+	position: relative;
+	text-align: center;
+}
+
+ #copyright{
+ 	width: 100%;
+ 	margin: auto;
+ 	text-align: center;
+ 	font-size: 13px;
+ 	top: 95%;
+ 	position: fixed;
+ 	color: white;
+ 	width: 20%;
+ 	margin-top: 4px;
+ }
+
+#caralhoo a{
+	position: absolute;
+	margin: auto;
+	left: 60%;
+	top: 90%;
+	height: 40px;
+	display: inline;
+	width: 180px;
+	color: #fff;
+	background-color: #002f67;
+	border-color: #fff;
+	font-size: 18px;
+	border-radius: 100px;
+
+}
+#caralhoo1 span{
+	position: absolute;
+	margin: auto;
+	left: 40%;
+	top: 90%;
+	height: 40px;
+	display: inline;
+	width: 180px;
+	color: #fff;
+	background-color: #002f67;
+	border-color: #fff;
+	font-size: 18px;
+	border-radius: 100px;
+}
+
+
+ a#link_impr{
+ 	color: black;
+ }
+
+
+ div#impimir_dados{
+ 	top: 10%;
+ 	left: -10%;
+ 	height: 100%;
+
+ }
+  div#impimir_dados table{
+  	position: relative;
+  	left: 20%;
+  	top: 10%;
+  }
+ input{
+	padding: 3px;
+	width:250px;
+	height:35px;
+	color: #022c64;
+	font-size: 17px;
+	font-family: 'Open Sans';
+	font-weight: 400;
+	
+}
+#cadastrar{
+	width: 90%;
+	position: relative;
+ 	right: -10%;
+ 	top: 10%;
+ 	text-align:center;
+}
+
+#cadastrar_livro{
+	width: 90%;
+	position: relative;
+ 	right: -10%;
+ 	top: 10%;
+ 	text-align:center;
+}
+.titulo{
+	background-color: #81C85E;
+ 	color:white; 
+ 	width: 99%;
+ 	height: 10%;
+ 	padding: 0;
+ 	margin: 0;
+
+}
+.titulo:before{
+	content: "";
+	vertical-align: middle;
+	display: inline-block;
+	height: 100%;
+}
+.titulo h3{
+	padding-left: 14%;
+	vertical-align: middle;
+	display: inline-block;
+}
+.direita_cima{
+	background-color: #81C85E;
+ 	color:white; 
+ 	width: 80%;
+ 	height: 11.2%;
+ 	position: relative;
+ 	left: 20%;
+ 	padding: 0;
+ 	margin: 0;
+ 	text-align: center;
+}
+.direita_cima:before{
+	content: "";
+	vertical-align: middle;
+	display: inline-block;
+	height: 100%;
+}
+.inside{
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.direita{
+ 	background-color: #D6F8C5;
+ 	position: relative;
+	right: -20%;
+	width: 80%;
+	height: 100%;
+	text-align: center;
+	color: #022c64;
+ }
+
+.bemvindo{
+	vertical-align: middle;
+	display: inline-block;
+}
+.bemvindo strong{
+	font-size: 50px;
+}
+#caralhoo{
+	text-align: center;
+	margin: auto;
+	width: 100%;
+}
+#homeadmin:before{
+	content: "";
+	vertical-align: middle;
+	height: 100%;
+	display: inline-block;
+}
+.direita a{
+	text-decoration: none;
+	color: #81C85E;
+}
+.direita table{
+	position: relative;
+	left: 15%;
+	top: 6%;
+	text-align: center;
+	width:70%;
+}
+#retirados span{
+	position: relative;
+	top: 40%;
+}
+#sugestoes{
+	height: 100%;
+}
+#sugestoes div{
+	position: relative;
+	top: 15%;
+	left: 15%;
+}
+#listar span{
+	font-size: 20px;
+}
+#infolivro div{
+	position: relative;
+	top: 20%;
+
+}
+#cadastrolivro .but{
+	position: relative;
+	left: 0%;
+}
+#listar table{
+	top: -9%;
+	font-size:17px;
+	position: relative;
+	left: -14%; 
+	width:135%;
+}
+#listar div{
+	text-align: center;
+}

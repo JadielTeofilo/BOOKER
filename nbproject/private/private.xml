@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/controllers/admin.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/_inc/headeruser.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/admin/listar.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/_inc/headeradm.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/usuarios/login.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/admin/view_home_high_lv.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/models/model_info.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/livros/cadastrar.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/livros/atualizar.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/usuarios/imprimir_dados.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/admin/atualizar.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/sugestoes/enviar_sugestao.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/models/admin_model.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/livros/listar.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/livros/meus_livros.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/usuarios/view_home_low_lv.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/usuarios/editar_cadastro.php</file>
+            <file>file:/C:/wamp/www/grupoo/grupo3/Biblioteca/application/views/admin/cadastrar.php</file>
+        </group>
+    </open-files>
+</project-private>

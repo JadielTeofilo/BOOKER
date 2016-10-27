@@ -1,0 +1,149 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+
+class Usuario extends CI_Controller {
+   
+    function __construct() {
+        parent:: __construct();
+        $this->load->model('admin_model');        
+    }
+    
+    public function index(){
+        $this->session->set_userdata('mensagem', '=)');
+            $this->session->set_userdata('subtitulo_mensagem', 'Cadastrado com Sucesso');
+            $this->session->set_userdata('tipo_mensagem', 'success');
+        $this->load->view("usuarios/login");
+        
+    }
+    public function home_low_lv(){
+        if ($this->session->userdata('prioridade')==1){
+            $this->load->view("usuarios/view_home_low_lv");
+        }
+        else{
+            $this->index();
+        }
+      
+        
+    }
+    public function home_high_lv(){
+        if ($this->session->userdata('prioridade')==2){
+            $this->load->view("admin/view_home_high_lv");
+        }
+        else{
+            $this->index();
+        }
+    }
+
+    function logar(){
+        /*$this->load->library('session');
+        $this->load->helper('url');*/
+        $login= $this->input->post('login');
+        
+        $senha= $this->input->post('senha');
+        $this->load->model('model_login');
+        $usuario=$this->model_login->logar($login, $senha);
+
+        if (($usuario==FALSE)||($login==NULL)){
+            $var['msg']="Usuario ou senha incorretos";
+            redirect('index.php');
+        }else{
+            $prioridade=$usuario->tipo_usuario_id;
+            $newdata= array(
+                'id'=>$usuario->id,
+                'nome'=>$usuario->nome,
+                'usuario'=>$usuario->usuario,
+                'prioridade'=>$usuario->tipo_usuario_id,
+                'logado'=>true               
+            );
+            $this->session->set_userdata($newdata);
+            if($prioridade==1){
+                redirect('index.php/usuario/home_low_lv');                                 
+            }
+            else{
+                redirect ('index.php/usuario/home_high_lv');
+            }
+        }
+    }
+    
+    public function deslogar(){
+        $this->load->helper('url');
+        $this->load->library('session');
+        $this->session->sess_destroy();
+        redirect($this->index());
+        
+    }
+    function senha_perdida1(){
+        $this->load->view('usuarios/perdi_senha');
+    }
+    function senha_perdida(){
+        $this->load->library('session');
+        $this->load->library('email');
+        $usuario= $this->input->post('usuario');
+        $this->load->model('model_senha_perdida');
+        $usuario=$this->model_senha_perdida->busca_usuario($usuario);
+        $this->email->from('jadieloliveira@cjr.org.br', 'Biblioteca Cjr');
+        $this->email->to($usuario->email);
+        $this->email->subject('Senha Biblioteca');
+        $this->email->message('Sua senha é: ', $usuario->senha, '.');
+        $this->email->send();
+
+        echo $this->email->print_debugger();
+    }
+    public function imprimir_dados(){
+ 
+        redirect('index.php/admin/atualizacaoSeuPerfil');
+    }
+    
+    public function imprimir_dados_meus(){
+ 
+        redirect('index.php/admin/atualizacaoSeuPerfil');
+    }
+    
+
+    function editar(){
+        /*$endereco_id = array(
+            'bairro' => $this->input->post('bairro'),
+            'cidade' => $this->input->post('cidade'),
+            'estado' => $this->input->post('estado'),
+            'complemento' => $this->input->post('complemento'),
+            'cep' => $this->input->post('cep'),
+            );*/
+        if(($this->input->post('id')!=NULL)&&($this->input->post('nome')!=NULL)&&($this->input->post('cargo')!=NULL)&&($this->input->post('telefone')!=NULL)&&($this->input->post('usuario')!=NULL)){
+            $usuario = array(
+                'id' => $this->input->post('id'),
+                'nome' => $this->input->post('nome'),
+                'email' => $this->input->post('email'),
+                'cargo' => $this->input->post('cargo'),
+                'telefone' => $this->input->post('telefone'),
+            );
+
+            /*$usuario['endereco_id'] = $this->admin_model->cadastrar_endereco($endereco_id);*/
+
+            $prioridade = $this->session->userdata('prioridade');
+
+
+
+            if($this->admin_model->edita($usuario)){
+                if ($prioridade==1) {
+                                $this->load->view('usuarios/view_home_low_lv');
+                            }  
+                else {
+                               $this->load->view('admin/view_home_high_lv'); 
+                          }          
+            }else{
+                $this->session->set_userdata('mensagem', 'Problema ao tentar buscar dados');
+
+                if ($prioridade==1) {
+                                $this->load->view('usuarios/view_home_low_lv');
+                            }  
+                else {
+                               $this->load->view('admin/view_home_high_lv'); 
+                          }          
+            }  
+        }
+        else{
+            $this->editando1();
+        }
+        
+    }
+}
