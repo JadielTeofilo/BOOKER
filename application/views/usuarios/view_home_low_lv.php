@@ -2,8 +2,8 @@
 <div id="homeadmin" class="direita">
     
     <div class="bemvindo">
-    <strong class="Titulo">Biblioteca Corporativa</strong><br>
-    <span class="Titulo1">Bem-vindo <?php echo $this->session->userdata('usuario');?></span>
+	    <strong class="Titulo">BOOKERS</strong><br>
+	    <span class="Titulo1">Bem-vindo <?php echo $this->session->userdata('usuario');?></span>
     </div>
 
 

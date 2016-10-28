@@ -24,7 +24,7 @@
             <a href="<?php echo base_url().'index.php/usuario/senha_perdida1'?>">Esqueci minha senha</a>
         </div>
         <div class="row">
-            ©2015 Sistema de Biblioteca Wheatley Corporation.        
+            ©2015 Sistema BOOKER.        
         </div>    
     </div>
     

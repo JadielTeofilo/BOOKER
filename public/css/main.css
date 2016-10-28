@@ -1,0 +1,55 @@
+#titulo{
+  margin:auto;
+  height:50px;
+  width:120px;
+  border-radius: 5px;
+  text-align:center;
+  text-transform: uppercase;
+  border: 2px solid #500808;
+  background-color: #b4874b;
+  position:relative;
+  top: 35px;
+}
+space a{
+  text-decoration:none;
+  color: #500808;
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+  position: relative;
+  top: 10px;
+}
+.nav a {
+  color: #5a5a5a;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 14px 10px;
+  text-transform: uppercase;
+}
+
+.nav li {
+  display: inline;
+}
+
+.jumbotron {
+  background-image:url('http://www.portalvr.com/biblioteca/images/acervo.jpg');
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron .container {
+  position: relative;
+  top:100px;
+}
+
+.jumbotron h1 {
+  color: #fff;
+  font-size: 48px;  
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
+
+.jumbotron p {
+  font-size: 20px;
+  color: #fff;
+}

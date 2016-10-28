@@ -12,7 +12,7 @@ class Usuario extends CI_Controller {
         $this->session->set_userdata('mensagem', '=)');
             $this->session->set_userdata('subtitulo_mensagem', 'Cadastrado com Sucesso');
             $this->session->set_userdata('tipo_mensagem', 'success');
-        $this->load->view("usuarios/login");
+        $this->load->view("usuarios/index");
         
     }
     public function home_low_lv(){
@@ -33,6 +33,11 @@ class Usuario extends CI_Controller {
             $this->index();
         }
     }
+
+    function mostrarlogar(){
+        $this->load->view("usuarios/login");
+    }
+
 
     function logar(){
         /*$this->load->library('session');
