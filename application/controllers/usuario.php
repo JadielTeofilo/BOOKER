@@ -5,7 +5,9 @@ class Usuario extends CI_Controller {
    
     function __construct() {
         parent:: __construct();
-        $this->load->model('admin_model');        
+        $this->load->model('admin_model');  
+        $this->load->model('model_sugestao');
+      
     }
     
     public function index(){
@@ -69,6 +71,13 @@ class Usuario extends CI_Controller {
             }
         }
     }
+
+    function listar(){
+        $this->load->model("model_info");
+        $dados['infos_usuario']=$this->model_sugestao->model_info->buscar_dados();
+        $dados['endereco']=$this->model_sugestao->model_info->buscar_endereco();
+        $this->load->view('usuarios/listar', $dados);
+    }
     
     public function deslogar(){
         $this->load->helper('url');
@@ -94,6 +103,22 @@ class Usuario extends CI_Controller {
 
         echo $this->email->print_debugger();
     }
+
+    public function ver_perfil(){
+        $id = $this->input->get('id');        
+        $usuario = $dados['usuario'] = $this->admin_model->buscar_usuario($id);    
+        $dados['endereco'] = $this->admin_model->buscar_endereco($usuario->endereco_id); 
+        //die(var_dump($this->session));       
+        if(empty($dados)){
+            $this->session->set_userdata('mensagem', 'Problema ao tentar buscar dados');
+            $this->listar();
+        }else{    
+            $this->session->set_userdata('mensagem', 'Só sucesso');
+            $this->load->view('usuarios/verPerfil', $dados);
+        }
+    }
+
+
     public function imprimir_dados(){
  
         redirect('index.php/admin/atualizacaoSeuPerfil');

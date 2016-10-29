@@ -39,9 +39,9 @@
 
 <!--Menu Superior-->
 <div class = "navbar-fixed">
-    <nav class="black">
+    <nav class="grey">
         <div class="nav-wrapper">
-            <a href="<?php echo base_url().'index.php/usuario/home_low_lv' ?>" class="rig brand-logo">Biblioteca Corporativa</a>
+            <a href="<?php echo base_url().'index.php/usuario/home_low_lv' ?>" class="center brand-logo">BOOKERS</a>
             <ul class="right hide-on-med-and-down">
                 <li>
                     <a href="<?php echo base_url().'index.php/usuario/imprimir_dados_meus'; ?>">Perfil</a>
@@ -57,8 +57,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="<?php echo base_url().'index.php/usuario/listar'; ?>">Visualizar Membros</a> 
+                </li>
+                <li>
                     <a href="<?php echo base_url().'index.php/usuario/deslogar'; ?>">Sair</a>
                 </li> 
+
             </ul>
         </div>
     </nav>
