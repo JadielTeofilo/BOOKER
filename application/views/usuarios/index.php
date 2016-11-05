@@ -26,6 +26,5 @@
 </body>
 <footer>
         
-        <?php echo $this->load->view('_inc/footer') ?>
 </footer>
 </html>
