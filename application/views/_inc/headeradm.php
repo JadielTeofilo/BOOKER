@@ -62,7 +62,7 @@
 
 <!--Menu Superior-->
 <div class = "navbar-fixed">
-    <nav class="grey">
+    <nav class="brown lighten-2">
         <div class="nav-wrapper">
             <a href="<?php echo base_url().'index.php/usuario/home_high_lv'; ?>" class="center brand-logo">BOOKERS</a>
             <ul class="left hide-on-med-and-down">

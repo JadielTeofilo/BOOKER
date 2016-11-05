@@ -1,7 +1,7 @@
 <?php if($this->session->userdata('mensagem')!=false) echo ""?>
 
 <br><br><br><br>
-<footer class="page-footer grey darken-1">
+<footer class="page-footer brown lighten-1">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
