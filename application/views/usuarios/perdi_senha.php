@@ -14,7 +14,7 @@ $this->load->helper('form');
 
 </head>
 <body>
-    <img id="logo" src="<?php echo base_url().'/public/imagens/cjrlivros.png'?>"/>
+    <img id="logo" src="<?php echo base_url().'/public/imagens/BOOKERslivros.png'?>"/>
     <div class="formu">
     <span>Digite seu nome de usuario e um email lhe será enviado com a sua senha</span><br>
     <?php echo form_open('index.php/usuario/senha_perdida')?>
@@ -24,5 +24,5 @@ $this->load->helper('form');
     </div>
 </body>
 <footer>
-		©2014 Sistema de Biblioteca Cjr.
+		©2014 Sistema de Biblioteca BOOKERs.
 </footer>

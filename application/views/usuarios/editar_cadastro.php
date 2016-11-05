@@ -8,7 +8,7 @@
             echo $var;
         }?>
             <br><br><br>
-        <h4 class="center">Edição de dados</h4>
+        <h4 class="center">Perfil</h4>
         <?php echo form_open('index.php/admin/atualizar');?>
         <input type="hidden" name='id' value="<?php echo $usuario->id; ?>" />  
         <input type="hidden" name='id_endereco' value="<?php echo $endereco->id; ?>" />          

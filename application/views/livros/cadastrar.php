@@ -9,6 +9,18 @@
             <input type="text" value="" name="autor" placeholder="Autor" required><br><br>
             <input type="text" value="" name="editora" placeholder="Editora" required><br><br>
             <input type="text" value="" name="edicao" placeholder="Edição" required><br><br>
+            <div class="input-field col s5 offset-s2 offset-m2 m4">
+                <h5><?= $this->lang->line('rel_file') ?></h5>
+                <!-- <div id="activeExcelFile" class="btn waves-effect"><p>ADD</p></div>
+                <input type="file" name="excelFile" style="display: none"> -->
+                <div class="file-field input-field">
+                    <input class="file-path validate" type="text">
+                    <div id="activeExcelFile" class="btn waves-effect">
+                        <p>ADD</p>
+                        <input type="file" name="excelFile" >
+                    </div>
+                </div>
+            </div>
             <input type="hidden" value="Acervo Geral" name="status" ><br><br>
             <button class=" center but btn waves-effect waves-light grey darken-3 col s12 m12 l8 offset-l2" type="submit">
                 <span>Enviar</span>
