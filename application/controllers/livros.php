@@ -48,21 +48,18 @@ class Livros extends CI_Controller{
         $this->load->view('livros/cadastrar',$dados);
     }
     function cadastrar(){
-
+        //Pdf upload
         $fileName = $this->input->post('pdffile');
         $fileConfig = getUploadConfig($fileName);
         $this->load->library('upload', $fileConfig);
         $ok = $this->upload->do_upload('pdffile');
-        var_dump($this->upload->display_errors('', ''));
-        var_dump($ok);
-        die;
-        if(($this->input->post('nome')!=NULL)&&($this->input->post('autor')!=NULL)&&($this->input->post('status')!=NULL)&&($this->input->post('editora')!=NULL)){
+
+        if(($this->input->post('nome')!=NULL)&&($this->input->post('autor')!=NULL)&&($this->input->post('editora')!=NULL)){
             $dados= array(
                 'nome'=>$this->input->post('nome'),
                 'editora'=>$this->input->post('editora'),
                 'autor'=>$this->input->post('autor'),
                 'edicao'=>$this->input->post('edicao'),
-                'status'=>$this->input->post('status'),
             );
             $this->model_livros->cadastrar_livro($dados);
             $variavel="Cadastrado com sucesso!!!!!";
@@ -105,14 +102,13 @@ class Livros extends CI_Controller{
         }
     }
     function atualizar(){
-        if (($this->input->post('id')!=NULL)&&($this->input->post('nome')!=NULL)&&($this->input->post('autor')!=NULL)&&($this->input->post('editora')!=NULL)&&($this->input->post('edicao')!=NULL)&&($this->input->post('status')!=NULL)){
+        if (($this->input->post('id')!=NULL)&&($this->input->post('nome')!=NULL)&&($this->input->post('autor')!=NULL)&&($this->input->post('editora')!=NULL)&&($this->input->post('edicao')!=NULL)){
             $livro= array(
                 'id'=>$this->input->post('id'),
                 'nome'=>  $this->input->post('nome'),
                 'autor'=> $this->input->post('autor'),
                 'editora'=>  $this->input->post('editora'),
                 'edicao'=>  $this->input->post('edicao'),
-                'status'=> $this->input->post('status'),                        
             );
             $this->model_livros->update($livro); 
             $this->visualizar();
@@ -152,11 +148,9 @@ class Livros extends CI_Controller{
 
         $this->model_livros->busca_livro_array($livro_id);
 
-        atualizar o status do livro de id 'id' 
 
         $livro = $this->model_livros->busca_livro_array($livro_id);
 
-        $livro['status']='Ocupado';
 
         $this->model_livros->update($livro);
 

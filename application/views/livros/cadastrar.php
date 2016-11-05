@@ -22,7 +22,7 @@
             </div>
             <br>
 
-            <input type="hidden" value="Acervo Geral" name="status" ><br><br>
+            <br><br>
             <button class=" center but btn waves-effect waves-light grey darken-3 col s12 m12 l8 offset-l2" type="submit">
                 <span>Enviar</span>
                 <i class="mdi-content-send right"></i>

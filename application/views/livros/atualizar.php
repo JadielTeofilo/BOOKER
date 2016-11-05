@@ -36,7 +36,6 @@
     </table>
             
         <input type="hidden" name='id' value="<?php echo $livro->id ?>" />
-        <input type="hidden" value="Acervo Geral" name="status" ><br>
 
     <?php form_close() ?>
 </div>

@@ -42,10 +42,6 @@
 
 </html>
 
-<!--
-<?php if ($row->status=="Acervo Geral"){?> <td><a href="<?php echo base_url().'index.php/livros/reservar_livro?id='.$row->id?>">Pegar livro</a><?php }?>
-            </tr>   
-                            base_url().'index.php/emprestimo/devolver_livro?id=$row->id$livro_id=$row->livro_id'
--->
+
 </div>
 <?php echo $this->load->view('_inc/footer') ?>

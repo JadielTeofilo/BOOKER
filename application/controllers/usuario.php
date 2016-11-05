@@ -64,7 +64,7 @@ class Usuario extends CI_Controller {
                 'logado'=>true               
             );
             $this->session->set_userdata($newdata);
-            if($prioridade==1){
+            if($prioridade<3){
                 redirect('index.php/usuario/home_low_lv');                                 
             }
             else{
@@ -144,7 +144,7 @@ class Usuario extends CI_Controller {
 
 
             if($this->admin_model->edita($usuario)){
-                if ($prioridade==1) {
+                if ($prioridade<3) {
                                 $this->load->view('usuarios/view_home_low_lv');
                             }  
                 else {
@@ -153,7 +153,7 @@ class Usuario extends CI_Controller {
             }else{
                 $this->session->set_userdata('mensagem', 'Problema ao tentar buscar dados');
 
-                if ($prioridade==1) {
+                if ($prioridade<3) {
                                 $this->load->view('usuarios/view_home_low_lv');
                             }  
                 else {
