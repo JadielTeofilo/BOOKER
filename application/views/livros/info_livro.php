@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('prioridade')==1){echo $this->load->view('_inc/headeradm');}else{ echo $this->load->view('_inc/headeruser');}  ?>
+<?php if ($this->session->userdata('prioridade')==3){echo $this->load->view('_inc/headeradm');}else{ echo $this->load->view('_inc/headeruser');}  ?>
     <?php    $prioridade = $this->session->userdata('prioridade');    ?>
     <h4 class = "container meio">Informações do Livro</h4>
 <div id="infolivro" class="container Titulo1 centro">

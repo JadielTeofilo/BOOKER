@@ -19,7 +19,7 @@ class Usuario extends CI_Controller {
         
     }
     public function home_low_lv(){
-        if ($this->session->userdata('prioridade')==1){
+        if ($this->session->userdata('prioridade')<3){
             $this->load->view("usuarios/view_home_low_lv");
         }
         else{
@@ -29,7 +29,7 @@ class Usuario extends CI_Controller {
         
     }
     public function home_high_lv(){
-        if ($this->session->userdata('prioridade')==2){
+        if ($this->session->userdata('prioridade')==3){
             $this->load->view("admin/view_home_high_lv");
         }
         else{
