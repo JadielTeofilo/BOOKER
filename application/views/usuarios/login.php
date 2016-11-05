@@ -28,12 +28,12 @@
         <br><br><br>
            <?php $attributes = array('class' => 'center-align');?>
             <?php echo form_open('index.php/usuario/logar', $attributes)?>
-                <div class="row" >
+                <div class="row white-text" >
                     <div class="center-align" class="input-field col s3">
                         <input required id="login" type="text" placeholder="Usuário" name="login" autofocus>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row white-text">
                     <div class="center-align" class="input-field s3">
                         <input required id ="password" type="password" placeholder="Senha" name="senha" autofocus>
                     </div>
