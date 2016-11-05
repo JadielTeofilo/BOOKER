@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('prioridade')==2){echo $this->load->view('_inc/headeradm');}else{ echo $this->load->view('_inc/headeruser');}  ?>
+<?php if ($this->session->userdata('prioridade')==1){echo $this->load->view('_inc/headeradm');}else{ echo $this->load->view('_inc/headeruser');}  ?>
 <div class="direita container meio">
     <h4>Atualizar Livro</h4>
     <?php if (isset($variavel)){echo $variavel;}?><br>
