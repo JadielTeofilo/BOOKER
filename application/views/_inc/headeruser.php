@@ -42,7 +42,7 @@
     <nav class="grey">
         <div class="nav-wrapper">
             <a href="<?php echo base_url().'index.php/usuario/home_low_lv' ?>" class="center brand-logo">BOOKERS</a>
-            <ul class="right hide-on-med-and-down">
+            <ul class="left hide-on-med-and-down">
                 <li>
                     <a href="<?php echo base_url().'index.php/usuario/imprimir_dados_meus'; ?>">Perfil</a>
                 </li>
