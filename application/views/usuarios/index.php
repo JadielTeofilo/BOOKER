@@ -1,5 +1,5 @@
 <?php echo $this->load->view('_inc/header') ?>
-
+<body>
     <div id="titulo">
         <space>
             <a href="LAH.html">BOOKERS</a>
