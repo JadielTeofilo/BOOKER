@@ -8,11 +8,7 @@ class Model_info extends CI_Model{
         
     }
     
-    function buscar_endereco(){
-        $query = $this->db->query("SELECT * FROM endereco");
-        return $query->result();
-        
-    }
+
        
 }
 

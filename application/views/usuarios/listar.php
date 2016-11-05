@@ -13,7 +13,6 @@
                     <tr >                    
                         <th>Nome</th>
                         <th>Email</th>
-                        <th>Telefone</th>
                         <th>Usuario</th>
                         <th>Prioridade</th>
                         <th>Acões</th>
@@ -27,7 +26,6 @@
                             <tr id="<?php echo alternator('test1', 'test2'); ?>">                        
                                 <td><?php echo $row->nome; ?></td>
                                 <td><?php echo $row->email; ?></td>
-                                <td><?php echo $row->telefone; ?></td>
                                 <td><?php echo $row->usuario; ?></td>
                                 <td><?php if( $row->tipo_usuario_id==2)echo 'Administrador';else echo'Usuario'; ?></td>                                                
                                 <td><a href="<?php echo base_url().'index.php/usuario/ver_perfil?id='.$row->id ?>">Visualizar</a></td>

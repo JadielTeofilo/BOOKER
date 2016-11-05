@@ -76,7 +76,6 @@ class Usuario extends CI_Controller {
     function listar(){
         $this->load->model("model_info");
         $dados['infos_usuario']=$this->model_sugestao->model_info->buscar_dados();
-        $dados['endereco']=$this->model_sugestao->model_info->buscar_endereco();
         $this->load->view('usuarios/listar', $dados);
     }
     
@@ -108,7 +107,6 @@ class Usuario extends CI_Controller {
     public function ver_perfil(){
         $id = $this->input->get('id');        
         $usuario = $dados['usuario'] = $this->admin_model->buscar_usuario($id);    
-        $dados['endereco'] = $this->admin_model->buscar_endereco($usuario->endereco_id); 
         //die(var_dump($this->session));       
         if(empty($dados)){
             $this->session->set_userdata('mensagem', 'Problema ao tentar buscar dados');
@@ -132,23 +130,14 @@ class Usuario extends CI_Controller {
     
 
     function editar(){
-        /*$endereco_id = array(
-            'bairro' => $this->input->post('bairro'),
-            'cidade' => $this->input->post('cidade'),
-            'estado' => $this->input->post('estado'),
-            'complemento' => $this->input->post('complemento'),
-            'cep' => $this->input->post('cep'),
-            );*/
-        if(($this->input->post('id')!=NULL)&&($this->input->post('nome')!=NULL)&&($this->input->post('cargo')!=NULL)&&($this->input->post('telefone')!=NULL)&&($this->input->post('usuario')!=NULL)){
+        
+        if(($this->input->post('id')!=NULL)&&($this->input->post('nome')!=NULL)&&($this->input->post('usuario')!=NULL)){
             $usuario = array(
                 'id' => $this->input->post('id'),
                 'nome' => $this->input->post('nome'),
                 'email' => $this->input->post('email'),
-                'cargo' => $this->input->post('cargo'),
-                'telefone' => $this->input->post('telefone'),
             );
 
-            /*$usuario['endereco_id'] = $this->admin_model->cadastrar_endereco($endereco_id);*/
 
             $prioridade = $this->session->userdata('prioridade');
 

@@ -48,10 +48,14 @@ class Livros extends CI_Controller{
         $this->load->view('livros/cadastrar',$dados);
     }
     function cadastrar(){
-        $fileName = $this->gera_nome_arquivo();
-        $fileConfig = getExcelUploadConfig($fileName);
+
+        $fileName = $this->input->post('pdffile');
+        $fileConfig = getUploadConfig($fileName);
         $this->load->library('upload', $fileConfig);
-        $ok = $this->upload->do_upload('excelFile');
+        $ok = $this->upload->do_upload('pdffile');
+        var_dump($this->upload->display_errors('', ''));
+        var_dump($ok);
+        die;
         if(($this->input->post('nome')!=NULL)&&($this->input->post('autor')!=NULL)&&($this->input->post('status')!=NULL)&&($this->input->post('editora')!=NULL)){
             $dados= array(
                 'nome'=>$this->input->post('nome'),
@@ -160,11 +164,6 @@ class Livros extends CI_Controller{
        
 
     }*/
-    public function gera_nome_arquivo() {
-        $surname = md5(microtime());
-        $surname = substr($surname, 0, 6) . "_";
-        $fileName = $surname . $_FILES['excelFile']['name'];
-        return $fileName;
-    }    
+  
     
 }

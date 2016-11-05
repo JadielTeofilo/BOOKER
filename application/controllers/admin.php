@@ -13,25 +13,17 @@ class Admin extends CI_Controller {
     public function cadastrar(){
         $this->load->model('admin_model');
         $variavel="Cadastro realizado com sucesso!!";
-        if(($this->input->post('bairro')!=NULL)&&($this->input->post('cidade')!=NULL)&&($this->input->post('estado')!=NULL)&&($this->input->post('complemento')!=NULL)&&($this->input->post('nome')!=NULL)&&($this->input->post('email')!=NULL)&&($this->input->post('cargo')!=NULL)&&($this->input->post('telefone')!=NULL)&&($this->input->post('senha')!=NULL)&&($this->input->post('tipo_usuario_id'))){
-        $endereco_id = array(
-            'bairro' => $this->input->post('bairro'),
-            'cidade' => $this->input->post('cidade'),
-            'estado' => $this->input->post('estado'),
-            'complemento' => $this->input->post('complemento'),
-            'cep' => $this->input->post('cep'),
-        );
+        if(($this->input->post('bairro')!=NULL)&&($this->input->post('cidade')!=NULL)&&($this->input->post('estado')!=NULL)&&($this->input->post('complemento')!=NULL)&&($this->input->post('nome')!=NULL)&&($this->input->post('email')!=NULL)&&($this->input->post('senha')!=NULL)&&($this->input->post('tipo_usuario_id'))){
+        
     	$admin = array(
                 'nome' => $this->input->post('nome'),
                 'email' => $this->input->post('email'),
-                'cargo' => $this->input->post('cargo'),
-                'telefone' => $this->input->post('telefone'),
                 'usuario' => $this->input->post('usuario'),
                 'senha' => ($this->input->post('senha')),
-                'endereco_id' => '',
+
                 'tipo_usuario_id' => $this->input->post('tipo_usuario_id')
     	); 
-            $admin['endereco_id'] = $this->admin_model->cadastrar_endereco($endereco_id);
+
             $this->admin_model->cadastrar_admin($admin);
             $this->session->set_userdata('mensagem', 'GGWP');  
             $this->cadastro1($variavel);  
@@ -82,7 +74,6 @@ class Admin extends CI_Controller {
     function listar(){
         $this->load->model("model_info");
         $dados['infos_usuario']=$this->model_sugestao->model_info->buscar_dados();
-        $dados['endereco']=$this->model_sugestao->model_info->buscar_endereco();
         $this->load->view('admin/listar', $dados);
     }
 
@@ -96,7 +87,6 @@ class Admin extends CI_Controller {
     public function atualizacaoSeuPerfil(){
         $id = $id=$this->session->userdata('id');        
         $usuario = $dados['usuario'] = $this->admin_model->buscar_usuario($id);    
-        $dados['endereco'] = $this->admin_model->buscar_endereco($usuario->endereco_id); 
         //die(var_dump($id));       
         if(empty($dados)){
             $this->session->set_userdata('mensagem', 'Problema ao tentar buscar dados');
@@ -110,7 +100,6 @@ class Admin extends CI_Controller {
     function atualizacao(){
         $id = $this->input->get('id');        
         $usuario = $dados['usuario'] = $this->admin_model->buscar_usuario($id);    
-        $dados['endereco'] = $this->admin_model->buscar_endereco($usuario->endereco_id); 
         //die(var_dump($this->session));       
         if(empty($dados)){
             $this->session->set_userdata('mensagem', 'Problema ao tentar buscar dados');
@@ -123,14 +112,7 @@ class Admin extends CI_Controller {
 
 
     function atualizar(){
-        $endereco = array(
-            'id' => $this->input->post('id'),
-            'bairro' => $this->input->post('bairro'),
-            'cidade' => $this->input->post('cidade'),
-            'estado' => $this->input->post('estado'),
-            'complemento' => $this->input->post('complemento'),
-            'cep' => $this->input->post('cep'),
-            );
+        
 
         $usuario = array(
             'id' => $this->input->post('id'),
@@ -138,12 +120,9 @@ class Admin extends CI_Controller {
             'usuario' => $this->input->post('usuario'),
             'senha' => $this->input->post('senha'),
             'email' => $this->input->post('email'),
-            'cargo' => $this->input->post('cargo'),
-            'telefone' => $this->input->post('telefone'),
-            'endereco_id'=>$this->input->post('endereco_id')
+
         );
 
-        $this->admin_model->atualizar_endereco($endereco);
  
         if($this->admin_model->atualizar_usuario($usuario)){
                 redirect("/index.php/usuario/imprimir_dados");
@@ -153,14 +132,7 @@ class Admin extends CI_Controller {
     
  
     function atualizar1(){ 
-        $endereco = array(
-            'id' => $this->input->post('id_endereco'),
-            'bairro' => $this->input->post('bairro'),
-            'cidade' => $this->input->post('cidade'),
-            'estado' => $this->input->post('estado'),
-            'complemento' => $this->input->post('complemento'),
-            'cep' => $this->input->post('cep'),
-            );
+        
 
         $usuario = array(
             'id' => $this->input->post('id'),
@@ -168,12 +140,9 @@ class Admin extends CI_Controller {
             'usuario' => $this->input->post('usuario'),
             'senha' => $this->input->post('senha'),
             'email' => $this->input->post('email'),
-            'cargo' => $this->input->post('cargo'),
-            'telefone' => $this->input->post('telefone'),
-            'endereco_id'=>$this->input->post('endereco_id')
         );
 
-        $this->admin_model->atualizar_endereco($endereco);
+
  
         if($this->admin_model->atualizar_usuario($usuario)){
                 $this->listar();
