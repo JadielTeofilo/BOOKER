@@ -33,6 +33,11 @@ AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8;
 
 
+/* tipo_usuario */
+insert into biblioteca.tipo_usuario values(1, "aluno");
+insert into biblioteca.tipo_usuario values(2, "professor");
+insert into biblioteca.tipo_usuario values(3, "admin");
+
 -- -----------------------------------------------------
 -- Table `biblioteca`.`usuario`
 -- -----------------------------------------------------
