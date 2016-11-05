@@ -7,9 +7,9 @@
         <span>Autor: <?php echo $livro->autor;?></span><br><br>
         <span>Editora: <?php echo $livro->editora;?></span><br><br>
         <span>Edição: <?php echo $livro->edicao;?></span><br><br>
-        <?php if (($prioridade<3)){?> <td><a href="<?php echo base_url().'index.php/livro/reservar_livro?id='.$livro->id?>">Pegar livro</a><?php }if(1){?>
-        <span>Data de emprestimo: <?php echo $emprestimo->data_inicio;?></span><br><br>
-        <span>Data de devolução: <?php echo $emprestimo->data_devolucao;?></span><br><br>
+        <?php if($prioridade == 3){?>
+        <span>Data de emprestimo: <?php if(isset($emprestimo->data_inicio)){echo $emprestimo->data_inicio;}else echo "Ninguém com o livro";?></span><br><br>
+        <span>Data de devolução: <?php if(isset($emprestimo->data_devolucao)){echo $emprestimo->data_inicio;}?></span><br><br>
         <span>Pessoa com o livro: <?php echo $usuario->nome;?></span><br><br>
         <?php }?>
     </div>
