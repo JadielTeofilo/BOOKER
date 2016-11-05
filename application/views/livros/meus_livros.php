@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('prioridade')==2){echo $this->load->view('_inc/headeradm');}else{ echo $this->load->view('_inc/headeruser');}  ?>
+<?php if ($this->session->userdata('prioridade')==3){echo $this->load->view('_inc/headeradm');}else{ echo $this->load->view('_inc/headeruser');}  ?>
 <div id="meuslivros" class="direita container meio">
 <?php 
     $id_usuario = $this->session->userdata['id'];
@@ -24,7 +24,15 @@
                     <td><a href="<?php echo base_url().'index.php/livros/info_livro?id='.$row->livro_id?>"><?php foreach($livros as $row2){if ($row->livro_id==$row2->id){echo $row2->nome;};}?></a></td>                        
                     <td><?php echo $row->data_inicio;?></td> 
                     <td><?php echo $row->data_devolucao;?></td> 
-                    <td><a href='<?php echo base_url()."index.php/emprestimo/devolver_livro?id=$row->id&livro_id=$row->livro_id"?>'>Devolver Livro</a>
+                    <td class="center">
+                        <a href='<?php echo base_url()."index.php/emprestimo/devolver_livro?id=$row->id&livro_id=$row->livro_id"?>'>
+                            Devolver Livro
+                        </a>
+                        ||
+                        <a href='<?php echo base_url()."index.php/livros/ler_livro?id=$row->id&livro_id=$row->livro_id"?>'>
+                            Ler livro
+                        </a>
+                    </td>
 
                 </tr>   
             <?php }}} ?>
@@ -42,10 +50,6 @@
 
 </html>
 
-<!--
-<?php if ($row->status=="Acervo Geral"){?> <td><a href="<?php echo base_url().'index.php/livros/reservar_livro?id='.$row->id?>">Pegar livro</a><?php }?>
-            </tr>   
-                            base_url().'index.php/emprestimo/devolver_livro?id=$row->id$livro_id=$row->livro_id'
--->
+
 </div>
 <?php echo $this->load->view('_inc/footer') ?>

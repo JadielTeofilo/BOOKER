@@ -17,6 +17,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>/public/js/materialize.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>/public/js/pdfobject.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>/public/js/pdfobject.js"></script>
     <script src="/public/sweetalert.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="/public/dist/sweetalert.css">
 </head>
@@ -63,7 +65,7 @@
     <nav class="grey">
         <div class="nav-wrapper">
             <a href="<?php echo base_url().'index.php/usuario/home_high_lv'; ?>" class="center brand-logo">BOOKERS</a>
-            <ul class="right hide-on-med-and-down">
+            <ul class="left hide-on-med-and-down">
                 <li>
                     <a href="<?php echo base_url().'index.php/usuario/imprimir_dados_meus'; ?>">Perfil</a>
                 </li>

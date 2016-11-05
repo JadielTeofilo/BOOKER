@@ -48,17 +48,19 @@ class Livros extends CI_Controller{
         $this->load->view('livros/cadastrar',$dados);
     }
     function cadastrar(){
-        $fileName = $this->gera_nome_arquivo();
-        $fileConfig = getExcelUploadConfig($fileName);
+        //Pdf upload
+        $fileName = $_FILES['pdffile']['name'];
+        $fileConfig = getUploadConfig($fileName);
         $this->load->library('upload', $fileConfig);
-        $ok = $this->upload->do_upload('excelFile');
-        if(($this->input->post('nome')!=NULL)&&($this->input->post('autor')!=NULL)&&($this->input->post('status')!=NULL)&&($this->input->post('editora')!=NULL)){
+        $ok = $this->upload->do_upload('pdffile');
+
+        if(($this->input->post('nome')!=NULL)&&($this->input->post('autor')!=NULL)&&($this->input->post('editora')!=NULL)){
             $dados= array(
                 'nome'=>$this->input->post('nome'),
                 'editora'=>$this->input->post('editora'),
                 'autor'=>$this->input->post('autor'),
                 'edicao'=>$this->input->post('edicao'),
-                'status'=>$this->input->post('status'),
+                'pdf'=>$fileName,
             );
             $this->model_livros->cadastrar_livro($dados);
             $variavel="Cadastrado com sucesso!!!!!";
@@ -101,14 +103,13 @@ class Livros extends CI_Controller{
         }
     }
     function atualizar(){
-        if (($this->input->post('id')!=NULL)&&($this->input->post('nome')!=NULL)&&($this->input->post('autor')!=NULL)&&($this->input->post('editora')!=NULL)&&($this->input->post('edicao')!=NULL)&&($this->input->post('status')!=NULL)){
+        if (($this->input->post('id')!=NULL)&&($this->input->post('nome')!=NULL)&&($this->input->post('autor')!=NULL)&&($this->input->post('editora')!=NULL)&&($this->input->post('edicao')!=NULL)){
             $livro= array(
                 'id'=>$this->input->post('id'),
                 'nome'=>  $this->input->post('nome'),
                 'autor'=> $this->input->post('autor'),
                 'editora'=>  $this->input->post('editora'),
                 'edicao'=>  $this->input->post('edicao'),
-                'status'=> $this->input->post('status'),                        
             );
             $this->model_livros->update($livro); 
             $this->visualizar();
@@ -130,6 +131,17 @@ class Livros extends CI_Controller{
         $this->load->view('livros/info_livro', $dados);
     }
    
+    public function ler_livro() {
+        $id=$this->input->get('livro_id');
+        $emprestimo=$dados['emprestimo']=$this->emprestimo_model->buscar_emprestimos1($id);
+        if(isset($emprestimo->usuario_id)){
+            $dados['usuario']=$this->model_login->achar_usuario($emprestimo->usuario_id);
+        }
+        $dados['livro']= $this->model_livros->busca_livro($id);
+        $this->load->view('livros/ler_livro', $dados);                                 
+
+    }    
+
     /*function reservar_livro(){
 
         $livro_id = $this->input->get('id');
@@ -148,11 +160,9 @@ class Livros extends CI_Controller{
 
         $this->model_livros->busca_livro_array($livro_id);
 
-        atualizar o status do livro de id 'id' 
 
         $livro = $this->model_livros->busca_livro_array($livro_id);
 
-        $livro['status']='Ocupado';
 
         $this->model_livros->update($livro);
 
@@ -160,11 +170,6 @@ class Livros extends CI_Controller{
        
 
     }*/
-    public function gera_nome_arquivo() {
-        $surname = md5(microtime());
-        $surname = substr($surname, 0, 6) . "_";
-        $fileName = $surname . $_FILES['excelFile']['name'];
-        return $fileName;
-    }    
+  
     
 }

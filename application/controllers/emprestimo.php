@@ -32,7 +32,6 @@ class Emprestimo extends CI_controller {
 
         $livro = $this->model_livros->busca_livro_array($livro_id);
 
-        $livro['status']='Ocupado';
 
         $this->model_livros->update($livro);
 
@@ -45,7 +44,6 @@ class Emprestimo extends CI_controller {
 
         $livro = $this->model_livros->busca_livro_array($livro_id);
 
-        $livro['status']='Acervo Geral';
 
         $this->model_livros->update($livro);
 

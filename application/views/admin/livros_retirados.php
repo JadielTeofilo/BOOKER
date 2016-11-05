@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('prioridade')==2){echo $this->load->view('_inc/headeradm');}else{ echo $this->load->view('_inc/headeruser');}  ?>
+<?php if ($this->session->userdata('prioridade')==3){echo $this->load->view('_inc/headeradm');}else{ echo $this->load->view('_inc/headeruser');}  ?>
 <div id="retirados" class="direita meio container">
     <h4>Livros retirados</h4>
     <?php if ($emprestimo==NULL){?>

@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('prioridade')==2){echo $this->load->view('_inc/headeradm');}else{ echo $this->load->view('_inc/headeruser');}  ?>
+<?php if ($this->session->userdata('prioridade')==3){echo $this->load->view('_inc/headeradm');}else{ echo $this->load->view('_inc/headeruser');}  ?>
     <div class="direita container">
     <body>
     <br>
@@ -10,7 +10,6 @@
             <thead>
                 <tr>
                     <th>   Nome do livro  </th>
-                    <th>      Status     </th>
                     <th>      Ações       </th>
                 </tr>
             </thead>
@@ -20,9 +19,8 @@
                     foreach($livro as $row){?>
                 <tr  id="<?php echo alternator('test1', 'test2'); ?>">
                     <td><a href="<?php echo base_url().'index.php/livros/info_livro?id='.$row->id?>"><?php echo $row->nome;?></a></td>
-                    <td><?php echo $row->status;?></td> 
-                    <?php if ($prioridade==2){?> <td><a href="<?php echo base_url().'index.php/livros/deletar?id='.$row->id?>">Deletar</a>||<a href="<?php echo base_url().'index.php/livros/atualizacao?id='.$row->id?>">Atualizar</a></td><?php }?>
-                    <?php if (($prioridade==1)&&($row->status=="Acervo Geral")){?> <td><a href="<?php echo base_url().'index.php/emprestimo/reservar_livro?id='.$row->id?>">Pegar livro</a><?php }?>
+                    <?php if ($prioridade==3){?> <td><a href="<?php echo base_url().'index.php/livros/deletar?id='.$row->id?>">Deletar</a>||<a href="<?php echo base_url().'index.php/livros/atualizacao?id='.$row->id?>">Atualizar</a></td><?php }?>
+                    <?php if (($prioridade<3)){?> <td><a href="<?php echo base_url().'index.php/emprestimo/reservar_livro?id='.$row->id?>">Pegar livro</a><?php }?>
                 </tr>   
                 <?php }}?>
             </tbody>
@@ -30,10 +28,10 @@
     <?php }else{?>
     <span>Não há livros cadastrados</span><br>
     <?php }?>
-    <?php if ($prioridade==2){?>  <br>  
+    <?php if ($prioridade==3){?>  <br>  
     <?php }?>
     <br><br>
-    <?php if($prioridade==2){?>
+    <?php if($prioridade==3){?>
     <?php }else{ ?>
     <?php }?>
     </body>
