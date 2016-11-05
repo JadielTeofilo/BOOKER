@@ -27,10 +27,10 @@
         <br><br>
 
         <span>Sexo</span>
-        <input class="col s6 center" class = "black" value = "0" name="tipo_usuario_id" type="radio" id="test1" />
-            <label for="test1">Feminino</label>
-        <input class="col s6 center" class = "black" value = "1" name="tipo_usuario_id" type="radio" id="test2" />
-            <label for="test2">Masculino</label>           
+        <input class="col s6 center" class = "black" value = "0" name="sexo_usuario_id" type="radio" id="tes1" />
+            <label for="tes1">Feminino</label>
+        <input class="col s6 center" class = "black" value = "1" name="sexo_usuario_id" type="radio" id="tes2" />
+            <label for="tes2">Masculino</label>           
         <br><br>
 
         <button class=" center but btn waves-effect waves-light grey darken-3 col s12 m12 l8 offset-l2" type="submit">

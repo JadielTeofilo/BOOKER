@@ -49,7 +49,7 @@ class Livros extends CI_Controller{
     }
     function cadastrar(){
         //Pdf upload
-        $fileName = $this->input->post('pdffile');
+        $fileName = $_FILES['pdffile']['name'];
         $fileConfig = getUploadConfig($fileName);
         $this->load->library('upload', $fileConfig);
         $ok = $this->upload->do_upload('pdffile');
@@ -60,6 +60,7 @@ class Livros extends CI_Controller{
                 'editora'=>$this->input->post('editora'),
                 'autor'=>$this->input->post('autor'),
                 'edicao'=>$this->input->post('edicao'),
+                'pdf'=>$fileName,
             );
             $this->model_livros->cadastrar_livro($dados);
             $variavel="Cadastrado com sucesso!!!!!";
@@ -130,6 +131,17 @@ class Livros extends CI_Controller{
         $this->load->view('livros/info_livro', $dados);
     }
    
+    public function ler_livro() {
+        $id=$this->input->get('livro_id');
+        $emprestimo=$dados['emprestimo']=$this->emprestimo_model->buscar_emprestimos1($id);
+        if(isset($emprestimo->usuario_id)){
+            $dados['usuario']=$this->model_login->achar_usuario($emprestimo->usuario_id);
+        }
+        $dados['livro']= $this->model_livros->busca_livro($id);
+        $this->load->view('livros/ler_livro', $dados);                                 
+
+    }    
+
     /*function reservar_livro(){
 
         $livro_id = $this->input->get('id');
