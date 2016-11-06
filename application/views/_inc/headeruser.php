@@ -19,6 +19,10 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>/public/js/pdfobject.js"></script>
     <script src="/public/sweetalert.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="/public/dist/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+  
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+
 </head>
 <body>
 

@@ -8,7 +8,7 @@
     <h4 class="center">Membros</h4>
     <?php if(($infos_usuario!=NULL)&&(sizeof($infos_usuario)>1)){?>
         <div class = "row meio">
-            <table id="table" class="highlight center">
+            <table id="table_id" class="display">
                 <thead>
                     <tr >                    
                         <th>Nome</th>

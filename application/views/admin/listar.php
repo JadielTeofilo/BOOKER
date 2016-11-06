@@ -7,7 +7,7 @@
     <h4 class="center">Membros</h4>
     <?php if(($infos_usuario!=NULL)&&(sizeof($infos_usuario)>1)){?>
         <div class = "row meio">
-            <table id="table" class="highlight center">
+            <table id="table_id" class="display">
                 <thead>
                     <tr >                    
                         <th>Nome</th>
@@ -26,7 +26,7 @@
                                 <td><?php echo $row->nome; ?></td>
                                 <td><?php echo $row->email; ?></td>
                                 <td><?php echo $row->usuario; ?></td>
-                                <td><?php if( $row->tipo_usuario_id==2)echo 'Administrador';else echo'Usuario'; ?></td>                                                
+                                <td><?php if( $row->tipo_usuario_id==3)echo 'Administrador';if( $row->tipo_usuario_id==2) echo'Professor';if( $row->tipo_usuario_id==1) echo'Aluno'; ?></td>                                                
                                 <td><a href="<?php echo base_url().'index.php/admin/deletar?id='.$row->id ?>">Deletar</a> |
                                 <a href="<?php echo base_url().'index.php/admin/atualizacao?id='.$row->id ?>">Atualizar</a></td>
 

@@ -16,6 +16,7 @@ class Livros extends CI_Controller{
     
     function visualizar (){
         $dados['livro']=$this->model_livros->buscar_livros();
+        $dados['emprestimos']=$this->emprestimo_model->buscar_emprestimos();
         $this->load->view('livros/listar', $dados);
     }
 

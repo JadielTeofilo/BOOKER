@@ -6,7 +6,7 @@
        $prioridade = $this->session->userdata('prioridade');
     ?>
     <?php if ($livro!=NULL){?>
-        <table >
+        <table id="table_id" class="display">
             <thead>
                 <tr>
                     <th>   Nome do livro  </th>
@@ -17,10 +17,28 @@
 
                 <?php if (isset($livro)){
                     foreach($livro as $row){?>
-                <tr  id="<?php echo alternator('test1', 'test2'); ?>">
+                <tr >
                     <td><a href="<?php echo base_url().'index.php/livros/info_livro?id='.$row->id?>"><?php echo $row->nome;?></a></td>
                     <?php if ($prioridade==3){?> <td><a href="<?php echo base_url().'index.php/livros/deletar?id='.$row->id?>">Deletar</a>||<a href="<?php echo base_url().'index.php/livros/atualizacao?id='.$row->id?>">Atualizar</a></td><?php }?>
-                    <?php if (($prioridade<3)){?> <td><a href="<?php echo base_url().'index.php/emprestimo/reservar_livro?id='.$row->id?>">Pegar livro</a><?php }?>
+                    <?php if (($prioridade<3)){
+                        $meu = 0;
+                        foreach($emprestimos as $emprestimo){
+                            if(($row->id == $emprestimo->livro_id)&&($this->session->userdata('id') == $emprestimo->usuario_id)){
+                                $meu = 1;
+                            }
+                        }
+                        if(!$meu){?>
+                        <td>
+                            <a href="<?php echo base_url().'index.php/emprestimo/reservar_livro?id='.$row->id?>">
+                                Pegar livro
+                            </a>
+                        </td>
+                    <?php } else{ ?>
+                        <td>
+                            <span> - </span>
+                        </td>
+                    <?php } 
+                    }?>
                 </tr>   
                 <?php }}?>
             </tbody>
