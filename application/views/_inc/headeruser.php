@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url().'index.php/usuario/listar'; ?>">Visualizar Membros</a> 
+                    <a href="<?php echo base_url().'index.php/usuario/listar'; ?>">Buscar Perfis</a> 
                 </li>
                 <li>
                     <a href="<?php echo base_url().'index.php/usuario/deslogar'; ?>">Sair</a>

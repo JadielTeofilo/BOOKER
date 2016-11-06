@@ -3,7 +3,7 @@
 class Admin_model extends CI_Model{
 
 
-        public function atualizar_usuario($usuario){
+    public function atualizar_usuario($usuario){
 		$this->db->where('id',$usuario['id']);
 		return  $this->db->update('usuario', $usuario);
 	}
@@ -20,6 +20,11 @@ class Admin_model extends CI_Model{
     function buscar_usuario($id){
     	$this->db->where('id', $id);
         return $this->db->get('usuario')->result()[0];
+    }
+
+    function buscar_usuario_like($nome){
+        $this->db->like('nome', $nome);
+        return $this->db->get('usuario')->result();
     }
 
             

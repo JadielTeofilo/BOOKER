@@ -74,9 +74,7 @@ class Usuario extends CI_Controller {
     }
 
     function listar(){
-        $this->load->model("model_info");
-        $dados['infos_usuario']=$this->model_sugestao->model_info->buscar_dados();
-        $this->load->view('usuarios/listar', $dados);
+        $this->load->view('usuarios/buscar_perfis');
     }
     
     public function deslogar(){
@@ -166,4 +164,18 @@ class Usuario extends CI_Controller {
         }
         
     }
+
+    function buscarPerfil(){
+            if($this->input->post('descricao')!=NULL){
+
+                $descricao = $this->input->post('descricao');
+
+                $dados['infos_usuario']=$this->admin_model->buscar_usuario_like($descricao);
+                $this->load->view('usuarios/listar', $dados);
+            }
+            else{
+                $variavel["variavel"]="Hmmm, preencha o campo!";
+                $this->load->view('sugestoes/enviar_sugestao', $variavel);
+            }
+        }
 }

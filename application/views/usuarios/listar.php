@@ -5,10 +5,17 @@
         echo "Uma conta com livro vinculado não pode ser deletada!";
     ?>
     <br><br><br>
-    <h4 class="center">Membros</h4>
-    <?php if(($infos_usuario!=NULL)&&(sizeof($infos_usuario)>1)){?>
+    <h4 class="center">Resultado da busca</h4>
+    <?php echo form_open('index.php/usuario/buscarPerfil')?>
+        <input required id="texto" name="descricao" value='' placeholder="Busca" type="text">
+        <br>
+        <button class=" center but btn waves-effect waves-light grey darken-3 col s12 m12 l8 offset-l2" type="submit">
+            <i class="mdi-content-send right"></i>
+        </button>
+    <?php form_close()?>
+    <?php if(($infos_usuario!=NULL)){?>
         <div class = "row meio">
-            <table id="table_id" class="display">
+            <table >
                 <thead>
                     <tr >                    
                         <th>Nome</th>
@@ -22,7 +29,7 @@
                         <?php $usuario_atual= $this->session->userdata('usuario'); ?>
                         <?php if( isset($infos_usuario) ){
                             foreach ($infos_usuario as $row) {
-                                if ($row->usuario!=$usuario_atual){?>
+                                if (1){?>
                             <tr id="<?php echo alternator('test1', 'test2'); ?>">                        
                                 <td><?php echo $row->nome; ?></td>
                                 <td><?php echo $row->email; ?></td>
