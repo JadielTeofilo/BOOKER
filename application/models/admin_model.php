@@ -22,6 +22,12 @@ class Admin_model extends CI_Model{
         return $this->db->get('usuario')->result()[0];
     }
 
+    function buscar_professor_has_livro($id){
+        $this->db->where('professor_usuario_id', $id);
+        return $this->db->get('professor_has_livro')->result();
+    }
+    
+
     function buscar_usuario_like($nome){
         $this->db->like('nome', $nome);
         return $this->db->get('usuario')->result();
@@ -33,4 +39,9 @@ class Admin_model extends CI_Model{
         return $this->db->update('usuario',$usuario); 
     }
 
+    function adicionarLivro($idLivro, $idUser){
+        $array = array('livro_id' => $idLivro, 'professor_usuario_id' => $idUser);
+        return $this->db->insert('professor_has_livro',$array);
+    }
+    
 }

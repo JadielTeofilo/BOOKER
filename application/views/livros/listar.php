@@ -5,6 +5,7 @@
     <?php
        $prioridade = $this->session->userdata('prioridade');
     ?>
+    <h4 class="center">Acervo cadastrado</h4>
     <?php if ($livro!=NULL){?>
         <table id="table_id" class="display">
             <thead>
@@ -31,7 +32,12 @@
                         <td>
                             <a href="<?php echo base_url().'index.php/emprestimo/reservar_livro?id='.$row->id?>">
                                 Pegar livro
+                            </a> 
+                            <?php if($this->session->userdata('prioridade')==2){?>|| 
+                            <a href="<?php echo base_url().'index.php/usuario/adicionarLivroPerfil?id='.$row->id?>">
+                                Adicionar ao perfil
                             </a>
+                            <?php }?>
                         </td>
                     <?php } else{ ?>
                         <td>

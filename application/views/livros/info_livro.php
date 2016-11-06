@@ -12,6 +12,30 @@
         <span>Data de devolução: <?php if(isset($emprestimo->data_devolucao)){echo $emprestimo->data_inicio;}?></span><br><br>
         <span>Pessoa com o livro: <?php echo $usuario->nome;?></span><br><br>
         <?php }?>
+        <?php if ($this->session->userdata('prioridade')<3){
+            $meu = 0;
+            foreach($emprestimos as $emprestimo){
+                if(($livro->id == $emprestimo->livro_id)&&($this->session->userdata('id') == $emprestimo->usuario_id)){
+                    $meu = 1;
+                }
+            }
+            if(!$meu){?>
+            <td>
+                <a href="<?php echo base_url().'index.php/emprestimo/reservar_livro?id='.$livro->id?>">
+                    Pegar livro
+                </a> 
+                <?php if($this->session->userdata('prioridade')==2){?>|| 
+                <a href="<?php echo base_url().'index.php/usuario/adicionarLivroPerfil?id='.$livro->id?>">
+                    Adicionar ao perfil
+                </a>
+                <?php }?>
+            </td>
+        <?php } else{ ?>
+            <td>
+                <span> - </span>
+            </td>
+        <?php } 
+        }?>
     </div>
 </div>
 <?php echo $this->load->view('_inc/footer') ?>

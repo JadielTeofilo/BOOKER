@@ -7,6 +7,7 @@ class Usuario extends CI_Controller {
         parent:: __construct();
         $this->load->model('admin_model');  
         $this->load->model('model_login');  
+        $this->load->model('model_livros');  
         $this->load->model('model_sugestao');
       
     }
@@ -105,6 +106,8 @@ class Usuario extends CI_Controller {
     public function ver_perfil(){
         $id = $this->input->get('id');        
         $usuario = $dados['usuario'] = $this->admin_model->buscar_usuario($id);    
+        $usuario = $dados['livroProf'] = $this->admin_model->buscar_professor_has_livro($id);  
+        $usuario = $dados['livros'] = $this->model_livros->buscar_livros($id);    
         //die(var_dump($this->session));       
         if(empty($dados)){
             $this->session->set_userdata('mensagem', 'Problema ao tentar buscar dados');
@@ -166,16 +169,26 @@ class Usuario extends CI_Controller {
     }
 
     function buscarPerfil(){
-            if($this->input->post('descricao')!=NULL){
+        if($this->input->post('descricao')!=NULL){
 
-                $descricao = $this->input->post('descricao');
+            $descricao = $this->input->post('descricao');
 
-                $dados['infos_usuario']=$this->admin_model->buscar_usuario_like($descricao);
-                $this->load->view('usuarios/listar', $dados);
-            }
-            else{
-                $variavel["variavel"]="Hmmm, preencha o campo!";
-                $this->load->view('sugestoes/enviar_sugestao', $variavel);
-            }
+            $dados['infos_usuario']=$this->admin_model->buscar_usuario_like($descricao);
+            $this->load->view('usuarios/listar', $dados);
         }
+        else{
+            $variavel["variavel"]="Hmmm, preencha o campo!";
+            $this->load->view('sugestoes/enviar_sugestao', $variavel);
+        }
+    }
+
+    function adicionarLivroPerfil(){
+
+        $livro_id = $this->input->get('id');
+        $usuario_id = $this->session->userdata['id'];
+        
+        $this->admin_model->adicionarLivro($livro_id, $usuario_id);
+
+        redirect('index.php/livros/visualizar');                                 
+    }
 }

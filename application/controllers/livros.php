@@ -124,7 +124,8 @@ class Livros extends CI_Controller{
     }
     function info_livro(){
         $id=$this->input->get('id');
-        $emprestimo=$dados['emprestimo']=$this->emprestimo_model->buscar_emprestimos1($id);
+        $dados['emprestimos']=$this->emprestimo_model->buscar_emprestimos();
+
         if(isset($emprestimo->usuario_id)){
             $dados['usuario']=$this->model_login->achar_usuario($emprestimo->usuario_id);
         }
