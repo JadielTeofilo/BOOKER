@@ -224,6 +224,8 @@ div#listar div{
 .bemvindo{
 	vertical-align: middle;
 	display: inline-block;
+	position:relative;
+  top: 35px;
 }
 .bemvindo strong{
 	font-size: 50px;
