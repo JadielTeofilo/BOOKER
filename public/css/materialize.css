@@ -8218,3 +8218,10 @@ footer {
     bottom: 0;
     width: 100%;
 }
+.downloadC{
+  background-color: rgb(82, 86, 89); 
+  position: absolute; 
+  width:1180px; 
+  height:60px; 
+  margin-left: 40px;
+}

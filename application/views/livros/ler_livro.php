@@ -5,6 +5,9 @@
     <div>
         <span>Nome: <?php echo $livro->nome;?></span><br><br>
         <div>
+        <div class="downloadC"></div>
+        </div>
+        <div>
             <object data="<?php echo base_url(); ?>/complemento/acervo/<?php echo $livro->pdf; ?>" type="application/pdf" width="1200" height="1100">
             alt : <a href="test.pdf">test.pdf</a>
             </object>

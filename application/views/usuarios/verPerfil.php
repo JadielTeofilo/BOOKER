@@ -34,9 +34,9 @@
                
             </tr>
 
-            <?php if($this->session->userdata('prioridade')==2){ ?>
+            <?php if($usuario->tipo_usuario_id==2){ ?>
             <tr>
-                <td>Livros:</td>
+                <td>Livros Recomendados:</td>
                 <?php
                 $nome = null;
                 $id = null;
