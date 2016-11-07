@@ -21,6 +21,7 @@
                 <tr >
                     <td><a href="<?php echo base_url().'index.php/livros/info_livro?id='.$row->id?>"><?php echo $row->nome;?></a></td>
                     <?php if ($prioridade==3){?> <td><a href="<?php echo base_url().'index.php/livros/deletar?id='.$row->id?>">Deletar</a>||<a href="<?php echo base_url().'index.php/livros/atualizacao?id='.$row->id?>">Atualizar</a></td><?php }?>
+                    <td>
                     <?php if (($prioridade<3)){
                         $meu = 0;
                         foreach($emprestimos as $emprestimo){
@@ -29,22 +30,17 @@
                             }
                         }
                         if(!$meu){?>
-                        <td>
                             <a href="<?php echo base_url().'index.php/emprestimo/reservar_livro?id='.$row->id?>">
                                 Pegar livro
-                            </a> 
-                            <?php if($this->session->userdata('prioridade')==2){?>|| 
-                            <a href="<?php echo base_url().'index.php/usuario/adicionarLivroPerfil?id='.$row->id?>">
-                                Adicionar ao perfil
-                            </a>
-                            <?php }?>
-                        </td>
-                    <?php } else{ ?>
-                        <td>
-                            <span> - </span>
-                        </td>
-                    <?php } 
-                    }?>
+                            </a> ||
+                    <?php } ?>
+                        <?php if($this->session->userdata('prioridade')==2){?>
+                        <a href="<?php echo base_url().'index.php/usuario/adicionarLivroPerfil?id='.$row->id?>">
+                            Adicionar ao perfil
+                        </a>
+                        <?php }
+                    } ?>
+                    </td>
                 </tr>   
                 <?php }}?>
             </tbody>

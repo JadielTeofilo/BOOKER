@@ -23,18 +23,14 @@
             <td>
                 <a href="<?php echo base_url().'index.php/emprestimo/reservar_livro?id='.$livro->id?>">
                     Pegar livro
-                </a> 
-                <?php if($this->session->userdata('prioridade')==2){?>|| 
-                <a href="<?php echo base_url().'index.php/usuario/adicionarLivroPerfil?id='.$livro->id?>">
-                    Adicionar ao perfil
-                </a>
-                <?php }?>
+                </a> || 
             </td>
-        <?php } else{ ?>
-            <td>
-                <span> - </span>
-            </td>
-        <?php } 
+        <?php } ?>
+            <?php if($this->session->userdata('prioridade')==2){?> 
+            <a href="<?php echo base_url().'index.php/usuario/adicionarLivroPerfil?id='.$livro->id?>">
+                Adicionar ao perfil
+            </a>
+            <?php }
         }?>
     </div>
 </div>

@@ -37,6 +37,7 @@
             <?php if($usuario->tipo_usuario_id==2){ ?>
             <tr>
                 <td>Livros Recomendados:</td>
+                <td>
                 <?php
                 $nome = null;
                 $id = null;
@@ -48,25 +49,22 @@
                         }
                     }if(isset($nome)){
                     ?>
-                    <td>
                         <a href="<?php echo base_url().'index.php/livros/info_livro?id='.$id?>">
                             <span>
                                 <?php echo $nome; ?>
                             </span>
                         </a>    
-                    </td>
                 <?php }
                 $nome = null;
                 $id = null;
                 } if(!sizeof($livroProf)){ ?>
-                <td>
                     <a hpef="#">
                         <span>
                             <?php echo "Nenhum Livro Relacionado"; ?>
                         </span>
                     </a>    
-                </td>
                 <?php } ?>
+                </td>
             </tr>
             <?php } ?>
         </table>
