@@ -186,8 +186,14 @@ class Usuario extends CI_Controller {
 
         $livro_id = $this->input->get('id');
         $usuario_id = $this->session->userdata['id'];
+
+        $livroAdicionado = $this->admin_model->verificaLivroAdicionado($livro_id, $usuario_id);
+        var_dump($livroAdicionado);
+        if(sizeof($livroAdicionado) == 0){
+            $this->admin_model->adicionarLivro($livro_id, $usuario_id);
+        }
+
         
-        $this->admin_model->adicionarLivro($livro_id, $usuario_id);
 
         redirect('index.php/livros/visualizar');                                 
     }

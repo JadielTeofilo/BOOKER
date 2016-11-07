@@ -41,7 +41,14 @@ class Admin_model extends CI_Model{
 
     function adicionarLivro($idLivro, $idUser){
         $array = array('livro_id' => $idLivro, 'professor_usuario_id' => $idUser);
-        return $this->db->insert('professor_has_livro',$array);
+        $this->db->insert('professor_has_livro',$array);
+        return 0;
+    }
+
+    function verificaLivroAdicionado($idLivro, $idUser){
+        $this->db->where('livro_id', $idLivro);
+        $this->db->where('professor_usuario_id', $idUser);
+        return $this->db->get('professor_has_livro')->result();
     }
     
 }
