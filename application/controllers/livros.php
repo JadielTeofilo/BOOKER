@@ -6,6 +6,7 @@ class Livros extends CI_Controller{
         parent:: __construct();
         $this->load->model('model_livros');
         $this->load->model('emprestimo_model');
+        $this->load->model('admin_model');
         $this->load->model('model_login');
         $this->load->model('model_info');
         $this->load->helper('myDirectory');
@@ -15,8 +16,10 @@ class Livros extends CI_Controller{
             
     
     function visualizar (){
+        $id = $this->session->userdata('id');        
         $dados['livro']=$this->model_livros->buscar_livros();
         $dados['emprestimos']=$this->emprestimo_model->buscar_emprestimos();
+        $usuario = $dados['livroProf'] = $this->admin_model->buscar_professor_has_livro($id);  
         $this->load->view('livros/listar', $dados);
     }
 
@@ -123,6 +126,9 @@ class Livros extends CI_Controller{
         
     }
     function info_livro(){
+        $id = $this->session->userdata('id');        
+        $dados['livroProf'] = $this->admin_model->buscar_professor_has_livro($id);  
+
         $id=$this->input->get('id');
         $dados['emprestimos']=$this->emprestimo_model->buscar_emprestimos();
 

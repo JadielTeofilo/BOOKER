@@ -39,21 +39,19 @@
                 <td>Livros Recomendados:</td>
                 <td>
                 <?php
-                $nome = null;
-                $id = null;
                 foreach($livroProf as $key){ 
-                    foreach($livros as $livro){
-                        if($livro->id == $key->professor_usuario_id){
-                            $nome = $livro->nome;
-                            $id   = $livro->id;
+                        if($usuario->id == $key->professor_usuario_id){
+                            foreach($livros as $livro){
+                                if($livro->id == $key->livro_id){?>
+                                    <a href="<?php echo base_url().'index.php/livros/info_livro?id='.$livro->id?>">
+                                        <span>
+                                            <?php echo $livro->nome; ?>
+                                        </span>
+                                    </a>       
+                        <?php   } }
                         }
-                    }if(isset($nome)){
+                    if(isset($nome)){
                     ?>
-                        <a href="<?php echo base_url().'index.php/livros/info_livro?id='.$id?>">
-                            <span>
-                                <?php echo $nome; ?>
-                            </span>
-                        </a>    
                 <?php }
                 $nome = null;
                 $id = null;

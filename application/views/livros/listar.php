@@ -34,11 +34,17 @@
                                 Pegar livro
                             </a> ||
                     <?php } ?>
-                        <?php if($this->session->userdata('prioridade')==2){?>
+                        <?php if($this->session->userdata('prioridade')==2){
+                            $jaIndicado = 0;
+                            foreach ($livroProf as $key) {
+                                if($key->professor_usuario_id == $this->session->userdata('id')){
+                                    $jaIndicado = 1;
+                                }
+                            }if(!$jaIndicado){ ?>
                         <a href="<?php echo base_url().'index.php/usuario/adicionarLivroPerfil?id='.$row->id?>">
                             Adicionar ao perfil
                         </a>
-                        <?php }
+                        <?php } }
                     } ?>
                     </td>
                 </tr>   
